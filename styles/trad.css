@@ -1,0 +1,31 @@
+*{margin:0;padding:0;}
+html{width:100%;height:100%;}
+body{padding:10px;}
+input[type="text"]{width:245px;padding:5px;}
+select{padding:5px;width:245px;}
+label{cursor:pointer;}
+fieldset{display:inline-block;padding:10px 15px;}
+legend{margin-left:20px;padding:0 10px 5px;}
+a{cursor:pointer;}
+.chargement{background-color:white;border-right:1px dashed grey;border-bottom:1px dashed grey;top:0;color:dimgrey;padding:2px 10px 5px;position:fixed;left:0;}
+.chargement img{vertical-align:middle;}
+.marqueur{outline:1px solid green;}
+.drapeaux{margin-left:5px;vertical-align:-9px;}
+.choix{display:inline;}
+.submit{display:inline;}
+.suggestions{display:inline-block;margin-left: 1px;}
+.suggestions>p{padding-left:10px;}
+.suggestions>div{padding-left:15px;}
+.repeat-counts{background-color:#ffffff;border-left:1px dashed grey;border-bottom:1px dashed grey;padding:10px;position:fixed;right:0;top:0;}
+.repeat-form{margin:10px 0;}
+.repeat-form,.repeat-counts{-webkit-transition:0.5s linear all;transition:0.5s linear all;display:table;}
+.repeat-form.ng-enter,.repeat-form.ng-leave.ng-leave-active{opacity:0;}
+.repeat-form.ng-leave,.repeat-form.ng-enter.ng-enter-active{opacity:1;}
+.action{background-color:white;border:1px solid dodgerblue;border-radius:5px;color:dodgerblue;padding: 4px 10px 4px 2px;}
+.action:hover{background:dodgerblue;color:white;}
+.envoyer img,.action img{vertical-align:-6px;margin-right:5px;}
+.envoyer{border:1px solid green;border-radius:5px;background:white;color:green;padding:4px 10px;}
+.envoyer:hover{background:green;color:white;}
+.bouton_plus{color:white;background-color:royalblue;padding:10px 20px;font-weight:bold;font-family:arial;border:1px solid white;margin:0 120px;display:inline-block;}
+.bouton_plus:hover{background-color:green;}
+.bouton_plus:active{background-color:white;border:1px solid royalblue;color:royalblue;}

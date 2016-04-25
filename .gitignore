@@ -1,0 +1,17 @@
+*.png*
+*.gif*
+*.jpg*
+*.jpeg*
+*.old*
+*.db
+*.asa
+*.md
+*.mp3
+*.swf
+*.map
+.sass-cache/
+*.yml
+*.ico
+*.php
+*.com
+*.asp

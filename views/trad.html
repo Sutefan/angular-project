@@ -1,0 +1,36 @@
+		<span class="chargement" ng-show="tls.loading">Recherche en cours...<img src="../images/loader-trad.gif"></span>
+		<div class="repeat-counts">
+			<span ng-repeat="count in tls.counts"><span style="color:red">{{count.count}}</span> restant en {{count.langue}}<br></span>
+		</div>
+		<form>
+			<fieldset>
+				<legend><b>Traduire à partir du : </b></legend> 
+				<div class="choix" ng-repeat="langue in tls.langues">
+					<input type="radio" ng-model="tls.traduits" name="traduits" id="traduits{{$index}}" ng-value="langue.shortcut"><label for="traduits{{$index}}"><img class="drapeaux" ng-src="{{tls.origin}}/images/{{langue.shortcut|uppercase}}.png"></label>				
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend><b>Vers le : </b></legend> 
+				<div class="choix" ng-repeat="langue in tls.langues">
+					<input type="radio" ng-model="tls.absents" name="absents" id="absents{{$index}}" ng-value="langue.shortcut"><label for="absents{{$index}}"><img class="drapeaux" ng-src="{{tls.origin}}/images/{{langue.shortcut|uppercase}}.png"></label>
+				</div>
+			</fieldset>
+			<button class="submit" ng-click="tls.fetchTrad()">Importer</button>
+		</form>		
+		<form class="repeat-form" ng-class="{'marqueur':$index==selectedIndex}" ng-repeat="manquant in tls.manquants">
+			<input type="text" ng-value="manquant.traduits">
+			<div class="suggestions" ng-switch on="manquant.propositions.length">
+				<select ng-model="manquant.traduction" ng-options="proposition as proposition for proposition in manquant.propositions" ng-switch-default>
+					<option value="">-- Choisissez une proposition --</option>
+				</select>
+				<input type="text" ng-model="manquant.traduction" ng-switch-when="0">
+			</div>
+			<a class="envoyer" ng-click="tls.updateTrad(manquant.traduits,manquant.traduction,$index)"><img src="/images/icon_update.png">Mettre à jour</a>
+			<a class="action" ng-click="tls.askGoogle(manquant.traduits,$index);"><img src="/images/icon_google.png">Ask Google</a>
+			<a class="action" ng-click="tls.askLinguee(manquant.traduits,$index);"><img src="/images/icon_linguee.png">Ask Linguee</a>
+			<a class="action" ng-click="tls.fetchPropositions(manquant.traduits,manquant.propositions,$index)"><img src="/images/icon_search.png">Rechercher</a>
+			<a class="action" ng-click="tls.setPropositionsToZero($index)"><img src="/images/icon_edit.png">Editer</a>
+			<a class="action" ng-click="tls.fetchPath($index)"><img src="/images/eye.png">Voir</a>
+		</form>
+		<br class="cb">
+		<a class="bouton_plus" ng-show="tls.manquants" ng-click="tls.fetchTrad()">+ de traductions en attente</a>
